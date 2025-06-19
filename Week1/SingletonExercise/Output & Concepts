@@ -1,0 +1,12 @@
+//Output
+
+PS C:\Users\kgoku\OneDrive\Desktop\DeepSkill\SingletonPatternExample>  c:; cd 'c:\Users\kgoku\OneDrive\Desktop\DeepSkill\SingletonPatternExample'; & 'C:\Program Files\Java\jdk-11\bin\java.exe' '-cp' 'C:\Users\kgoku\OneDrive\Desktop\DeepSkill\SingletonPatternExample\bin' 'Test' 
+Instance created using Logger
+Both log1 , log2 and log3 are the same instance of Logger class
+
+//Concepts
+Singleton - It indicates that the class is constrained to instantiate only one instance in the main class.
+
+The code is implemented by creating a java project and two class-Logger and class-Logger.
+class-Logger --> It forms the singleton class to form only one instance of the class Logger.
+class-Test --> It is a test class to show the instance created is same for every objects created in the Java Project.
