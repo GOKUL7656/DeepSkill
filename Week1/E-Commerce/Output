@@ -1,1 +1,9 @@
+//OUTPUT
 
+--- Linear Search ---
+Found: Product [ID=P002, Name=Wireless Mouse, Category=Accessories, Price=25.0]
+Product P999 not found.
+
+--- Binary Search ---
+Found: Product [ID=P004, Name=External SSD, Category=Storage, Price=100.0]
+Product P006 not found.
