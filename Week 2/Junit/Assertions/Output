@@ -1,0 +1,9 @@
+//Output
+
+--- Running Assertions Test ---
+Assertion: assertEquals(5, 2 + 3) - Passed
+Assertion: assertTrue(5 > 3) - Passed
+Assertion: assertFalse(5 < 3) - Passed
+Assertion: assertNull(null) - Passed
+Assertion: assertNotNull(new Object()) - Passed
+--- All Assertions in testAssertions() Passed! ---
