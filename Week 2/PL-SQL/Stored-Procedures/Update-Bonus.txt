@@ -1,0 +1,27 @@
+SET SERVEROUTPUT ON;
+
+CREATE OR REPLACE PROCEDURE UpdateEmployeeBonus (
+    p_department_name IN VARCHAR2,
+    p_bonus_percentage IN NUMBER
+) IS
+    v_updated_count NUMBER := 0;
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('--- Updating Employee Bonus for Department: ' || p_department_name || ' ---');
+    DBMS_OUTPUT.PUT_LINE('Applying bonus of: ' || TO_CHAR(p_bonus_percentage * 100, 'FM99.99') || '%');
+
+    UPDATE Employees
+    SET Salary = Salary * (1 + p_bonus_percentage)
+    WHERE Department = p_department_name;
+
+    v_updated_count := SQL%ROWCOUNT;
+    DBMS_OUTPUT.PUT_LINE(v_updated_count || ' employees in ' || p_department_name || ' had their salaries updated.');
+
+    COMMIT;
+    DBMS_OUTPUT.PUT_LINE('--- Employee bonus update complete. ---');
+
+EXCEPTION
+    WHEN OTHERS THEN
+        ROLLBACK;
+        DBMS_OUTPUT.PUT_LINE('An error occurred during employee bonus update: ' || SQLERRM);
+END UpdateEmployeeBonus;
+/

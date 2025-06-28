@@ -1,0 +1,53 @@
+SET SERVEROUTPUT ON;
+
+CREATE OR REPLACE PROCEDURE TransferFunds (
+    p_source_account_number IN VARCHAR2,
+    p_destination_account_number IN VARCHAR2,
+    p_amount IN NUMBER
+) IS
+    v_source_balance NUMBER(10, 2);
+    e_insufficient_funds EXCEPTION;
+    PRAGMA EXCEPTION_INIT(e_insufficient_funds, -20001);
+
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('--- Initiating Fund Transfer ---');
+    DBMS_OUTPUT.PUT_LINE('From: ' || p_source_account_number || ' To: ' || p_destination_account_number || ' Amount: $' || TO_CHAR(p_amount, 'FM999,999.00'));
+
+    IF p_amount <= 0 THEN
+        DBMS_OUTPUT.PUT_LINE('Error: Transfer amount must be positive.');
+        RETURN;
+    END IF;
+
+    SELECT Balance
+    INTO v_source_balance
+    FROM Accounts
+    WHERE AccountNumber = p_source_account_number;
+
+    IF v_source_balance < p_amount THEN
+        RAISE e_insufficient_funds;
+    END IF;
+
+    UPDATE Accounts
+    SET Balance = Balance - p_amount
+    WHERE AccountNumber = p_source_account_number;
+
+    UPDATE Accounts
+    SET Balance = Balance + p_amount
+    WHERE AccountNumber = p_destination_account_number;
+
+    COMMIT;
+    DBMS_OUTPUT.PUT_LINE('Transfer successful!');
+    DBMS_OUTPUT.PUT_LINE('New balance for ' || p_source_account_number || ': $' || TO_CHAR(v_source_balance - p_amount, 'FM999,999.00'));
+
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        ROLLBACK;
+        DBMS_OUTPUT.PUT_LINE('Error: One or both account numbers do not exist.');
+    WHEN e_insufficient_funds THEN
+        ROLLBACK;
+        DBMS_OUTPUT.PUT_LINE('Error: Insufficient funds in source account ' || p_source_account_number || '. Current balance: $' || TO_CHAR(v_source_balance, 'FM999,999.00'));
+    WHEN OTHERS THEN
+        ROLLBACK;
+        DBMS_OUTPUT.PUT_LINE('An unexpected error occurred during transfer: ' || SQLERRM);
+END TransferFunds;
+/

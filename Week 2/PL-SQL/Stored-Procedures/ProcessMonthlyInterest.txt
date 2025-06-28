@@ -1,0 +1,21 @@
+SET SERVEROUTPUT ON;
+
+CREATE OR REPLACE PROCEDURE ProcessMonthlyInterest IS
+    v_interest_rate CONSTANT NUMBER := 0.01;
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('--- Processing Monthly Interest for Savings Accounts ---');
+
+    UPDATE SavingsAccounts
+    SET Balance = Balance * (1 + v_interest_rate);
+
+    DBMS_OUTPUT.PUT_LINE(SQL%ROWCOUNT || ' savings accounts updated with monthly interest.');
+
+    COMMIT;
+    DBMS_OUTPUT.PUT_LINE('--- Monthly interest processing complete. ---');
+
+EXCEPTION
+    WHEN OTHERS THEN
+        ROLLBACK;
+        DBMS_OUTPUT.PUT_LINE('An error occurred during interest processing: ' || SQLERRM);
+END ProcessMonthlyInterest;
+/
