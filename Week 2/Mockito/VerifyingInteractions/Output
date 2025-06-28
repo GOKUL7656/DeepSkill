@@ -1,0 +1,10 @@
+//Test Results
+
+%TSTTREE4,testVerifyInteraction(com.example.MyServiceTest),false,1,false,2,testVerifyInteraction(),,[engine:junit-jupiter]/[class:com.example.MyServiceTest]/[method:testVerifyInteraction()]
+%TESTS  3,testSendAndCheckStatus_verifyInteraction(com.example.MyServiceTest)
+
+%TESTE  3,testSendAndCheckStatus_verifyInteraction(com.example.MyServiceTest)
+
+%TESTS  4,testVerifyInteraction(com.example.MyServiceTest)
+
+%TESTE  4,testVerifyInteraction(com.example.MyServiceTest)
