@@ -1,0 +1,45 @@
+//Test-Results
+
+%TESTE  2,testReverseString_Empty(com.example.StringUtilityTest)
+
+%TESTS  3,testCountVowels_NoVowels(com.example.StringUtilityTest)
+%TESTE  3,testCountVowels_NoVowels(com.example.StringUtilityTest)
+%TESTS  4,testIsPalindrome_Null(com.example.StringUtilityTest)
+
+%TESTE  4,testIsPalindrome_Null(com.example.StringUtilityTest)
+%TESTS  5,testIsPalindrome_True(com.example.StringUtilityTest)
+
+%TESTE  5,testIsPalindrome_True(com.example.StringUtilityTest)
+%TESTS  6,testCountVowels_Normal(com.example.StringUtilityTest)
+
+%TESTE  6,testCountVowels_Normal(com.example.StringUtilityTest)
+
+%TESTS  7,testCountVowels_Empty(com.example.StringUtilityTest)
+
+%TESTE  7,testCountVowels_Empty(com.example.StringUtilityTest)
+
+%TESTS  8,testCountVowels_Null(com.example.StringUtilityTest)
+%TESTE  8,testCountVowels_Null(com.example.StringUtilityTest)
+
+%TESTS  9,testReverseString_Null(com.example.StringUtilityTest)
+%TESTE  9,testReverseString_Null(com.example.StringUtilityTest)
+
+%TESTS  10,testReverseString_Normal(com.example.StringUtilityTest)
+
+%TESTE  10,testReverseString_Normal(com.example.StringUtilityTest)
+
+%TESTS  11,testIsPalindrome_TrueWithSpacesAndPunctuation(com.example.StringUtilityTest)
+
+%TESTE  11,testIsPalindrome_TrueWithSpacesAndPunctuation(com.example.StringUtilityTest)
+%TESTS  12,testReverseString_WithSpaces(com.example.StringUtilityTest)
+%TESTE  12,testReverseString_WithSpaces(com.example.StringUtilityTest)
+%TESTS  13,testIsPalindrome_Empty(com.example.StringUtilityTest)
+%TESTE  13,testIsPalindrome_Empty(com.example.StringUtilityTest)
+
+%TESTS  14,testIsPalindrome_False(com.example.StringUtilityTest)
+
+%TESTE  14,testIsPalindrome_False(com.example.StringUtilityTest)
+
+%TESTS  15,testCountVowels_UpperCase(com.example.StringUtilityTest)
+
+%TESTE  15,testCountVowels_UpperCase(com.example.StringUtilityTest)
