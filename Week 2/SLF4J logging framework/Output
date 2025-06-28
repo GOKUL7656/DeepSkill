@@ -1,0 +1,8 @@
+//Output
+
+PS C:\Users\kgoku\OneDrive\Desktop\DeepSkill\WEEK 2\demo1>  & 'C:\Program Files\Java\jdk-11\bin\java.exe' '@C:\Users\kgoku\AppData\Local\Temp\cp_c1s7rg1sxtyrl8kf6jvdul11l.argfile' 'com.example.Logging' 
+01:25:58.300 [main] ERROR com.example.Logging - This is an error message
+01:25:58.300 [main] WARN com.example.Logging - This is a warning message
+01:25:58.300 [main] INFO com.example.Logging - This is an info message
+01:25:58.300 [main] DEBUG com.example.Logging - This is a debug message (may not show by default config)
+PS C:\Users\kgoku\OneDrive\Desktop\DeepSkill\WEEK 2\demo1> 
