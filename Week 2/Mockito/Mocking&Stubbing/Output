@@ -1,0 +1,7 @@
+//Output
+
+Test `testFetchDataWithMockApi` completed successfully.
+
+# JUnit Test Runner Output (general appearance, specific format may vary slightly by VS Code version)
+com.example.MyServiceTest
+  ✓ testFetchDataWithMockApi (XX ms)
