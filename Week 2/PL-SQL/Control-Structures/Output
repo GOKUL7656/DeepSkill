@@ -1,0 +1,28 @@
+
+
+--- Applying Loan Interest Rate Discount ---
+Customer ID: 1 (Age: 65), Loan ID: 101 - Old Rate: 7.5%, New Rate: 7.49%
+Customer ID: 3 (Age: 72), Loan ID: 103 - Old Rate: 8.%, New Rate: 7.99%
+Customer ID: 5 (Age: 61), Loan ID: 105 - Old Rate: 7.2%, New Rate: 7.19%
+Customer ID: 1 (Age: 65), Loan ID: 106 - Old Rate: 7.%, New Rate: 6.99%
+--- Discount application complete. ---
+
+
+
+
+--- Promoting Customers to VIP Status ---
+Customer ID: 1 (Name: Alice Smith) - Balance: $12,000.00 - Promoted to VIP.
+Customer ID: 2 (Name: Bob Johnson) - Balance: $8,500.00 - Does not qualify for VIP.
+Customer ID: 3 (Name: Charlie Brown) - Balance: $5,000.00 - Does not qualify for VIP.
+Customer ID: 4 (Name: Diana Prince) - Balance: $15,000.00 - Promoted to VIP.
+Customer ID: 5 (Name: Eve Adams) - Balance: $9,000.00 - Does not qualify for VIP.
+Customer ID: 6 (Name: Frank White) - Balance: $2,000.00 - Does not qualify for VIP.
+--- VIP promotion process complete. ---
+
+
+
+
+--- Sending Loan Reminders ---
+Reminder: Dear Bob Johnson, your loan (ID: 102) of $15,000.00 is due on 13-JUL-2025.
+Reminder: Dear Diana Prince, your loan (ID: 104) of $50,000.00 is due on 08-JUL-2025.
+--- Loan reminder process complete. ---
