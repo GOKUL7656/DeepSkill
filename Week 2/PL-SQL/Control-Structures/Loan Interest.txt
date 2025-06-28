@@ -1,0 +1,60 @@
+SET SERVEROUTPUT ON;
+
+DECLARE
+    CURSOR c_customer_loans IS
+        SELECT
+            c.CustomerID,
+            c.Age,
+            l.LoanID,
+            l.InterestRate
+        FROM
+            Customers c
+        JOIN
+            Loans l ON c.CustomerID = l.CustomerID;
+
+    v_customer_id    Customers.CustomerID%TYPE;
+    v_customer_age   Customers.Age%TYPE;
+    v_loan_id        Loans.LoanID%TYPE;
+    v_current_rate   Loans.InterestRate%TYPE;
+    v_new_rate       Loans.InterestRate%TYPE;
+    v_discount_rate  CONSTANT NUMBER := 0.01;
+
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('--- Applying Loan Interest Rate Discount ---');
+
+    FOR r_loan IN c_customer_loans LOOP
+        v_customer_id  := r_loan.CustomerID;
+        v_customer_age := r_loan.Age;
+        v_loan_id      := r_loan.LoanID;
+        v_current_rate := r_loan.InterestRate;
+
+        IF v_customer_age > 60 THEN
+            v_new_rate := v_current_rate - v_discount_rate;
+
+            IF v_new_rate < 0 THEN
+                v_new_rate := 0;
+            END IF;
+
+            UPDATE Loans
+            SET InterestRate = v_new_rate
+            WHERE LoanID = v_loan_id;
+
+            DBMS_OUTPUT.PUT_LINE(
+                'Customer ID: ' || v_customer_id ||
+                ' (Age: ' || v_customer_age || ')' ||
+                ', Loan ID: ' || v_loan_id ||
+                ' - Old Rate: ' || TO_CHAR(v_current_rate, 'FM99.99') || '%' ||
+                ', New Rate: ' || TO_CHAR(v_new_rate, 'FM99.99') || '%'
+            );
+        END IF;
+    END LOOP;
+
+    COMMIT;
+    DBMS_OUTPUT.PUT_LINE('--- Discount application complete. ---');
+
+EXCEPTION
+    WHEN OTHERS THEN
+        ROLLBACK;
+        DBMS_OUTPUT.PUT_LINE('An error occurred: ' || SQLERRM);
+END;
+/

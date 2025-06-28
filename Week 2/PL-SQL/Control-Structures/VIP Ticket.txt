@@ -1,0 +1,63 @@
+SET SERVEROUTPUT ON;
+
+DECLARE
+    CURSOR c_customers IS
+        SELECT
+            CustomerID,
+            Name,
+            Balance,
+            IsVIP
+        FROM
+            Customers;
+
+    v_customer_id   Customers.CustomerID%TYPE;
+    v_customer_name Customers.Name%TYPE;
+    v_balance       Customers.Balance%TYPE;
+    v_is_vip_flag   Customers.IsVIP%TYPE;
+    v_vip_threshold CONSTANT NUMBER := 10000;
+
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('--- Promoting Customers to VIP Status ---');
+
+    FOR r_customer IN c_customers LOOP
+        v_customer_id   := r_customer.CustomerID;
+        v_customer_name := r_customer.Name;
+        v_balance       := r_customer.Balance;
+        v_is_vip_flag   := r_customer.IsVIP;
+
+        IF v_balance > v_vip_threshold AND v_is_vip_flag = 'FALSE' THEN
+            UPDATE Customers
+            SET IsVIP = 'TRUE'
+            WHERE CustomerID = v_customer_id;
+
+            DBMS_OUTPUT.PUT_LINE(
+                'Customer ID: ' || v_customer_id ||
+                ' (Name: ' || v_customer_name || ')' ||
+                ' - Balance: $' || TO_CHAR(v_balance, 'FM999,999.00') ||
+                ' - Promoted to VIP.'
+            );
+        ELSIF v_balance > v_vip_threshold AND v_is_vip_flag = 'TRUE' THEN
+            DBMS_OUTPUT.PUT_LINE(
+                'Customer ID: ' || v_customer_id ||
+                ' (Name: ' || v_customer_name || ')' ||
+                ' - Already VIP.'
+            );
+        ELSE
+            DBMS_OUTPUT.PUT_LINE(
+                'Customer ID: ' || v_customer_id ||
+                ' (Name: ' || v_customer_name || ')' ||
+                ' - Balance: $' || TO_CHAR(v_balance, 'FM999,999.00') ||
+                ' - Does not qualify for VIP.'
+            );
+        END IF;
+    END LOOP;
+
+    COMMIT;
+    DBMS_OUTPUT.PUT_LINE('--- VIP promotion process complete. ---');
+
+EXCEPTION
+    WHEN OTHERS THEN
+        ROLLBACK;
+        DBMS_OUTPUT.PUT_LINE('An error occurred: ' || SQLERRM);
+END;
+/
