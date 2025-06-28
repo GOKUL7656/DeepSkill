@@ -1,0 +1,224 @@
+SQL> BEGIN
+         EXECUTE IMMEDIATE 'DROP TABLE SavingsAccounts';
+     EXCEPTION
+         WHEN OTHERS THEN...
+Show more...
+
+
+
+PL/SQL procedure successfully completed.
+
+Elapsed: 00:00:00.044
+
+
+SQL> CREATE TABLE SavingsAccounts (
+         AccountID NUMBER PRIMARY KEY,
+         CustomerName VARCHAR2(100) NOT NULL,
+         Balance NUMBER(10, 2) NOT NULL...
+Show more...
+
+
+
+Table SAVINGSACCOUNTS created.
+
+Elapsed: 00:00:00.015
+
+
+SQL> CREATE TABLE Employees (
+         EmployeeID NUMBER PRIMARY KEY,
+         Name VARCHAR2(100) NOT NULL,
+         Department VARCHAR2(50) NOT NULL,...
+Show more...
+
+
+
+Table EMPLOYEES created.
+
+Elapsed: 00:00:00.013
+
+
+SQL> CREATE TABLE Accounts (
+         AccountNumber VARCHAR2(20) PRIMARY KEY,
+         AccountHolder VARCHAR2(100) NOT NULL,
+         Balance NUMBER(10, 2) NOT NULL...
+Show more...
+
+
+
+Table ACCOUNTS created.
+
+Elapsed: 00:00:00.011
+
+
+SQL> INSERT INTO SavingsAccounts (AccountID, CustomerName, Balance) VALUES (1001, 'John Doe', 5000.00)
+
+
+
+1 row inserted.
+
+Elapsed: 00:00:00.015
+
+
+SQL> INSERT INTO SavingsAccounts (AccountID, CustomerName, Balance) VALUES (1002, 'Jane Smith', 12000.50)
+
+
+
+1 row inserted.
+
+Elapsed: 00:00:00.001
+
+
+SQL> INSERT INTO SavingsAccounts (AccountID, CustomerName, Balance) VALUES (1003, 'Mike Johnson', 800.75)
+
+
+
+1 row inserted.
+
+Elapsed: 00:00:00.002
+
+
+SQL> INSERT INTO SavingsAccounts (AccountID, CustomerName, Balance) VALUES (1004, 'Emily Davis', 25000.00)
+
+
+
+1 row inserted.
+
+Elapsed: 00:00:00.002
+
+
+SQL> INSERT INTO Employees (EmployeeID, Name, Department, Salary) VALUES (1, 'Alice Green', 'Sales', 60000.00)
+
+
+
+1 row inserted.
+
+Elapsed: 00:00:00.012
+
+
+SQL> INSERT INTO Employees (EmployeeID, Name, Department, Salary) VALUES (2, 'Bob Black', 'Marketing', 55000.00)
+
+
+
+1 row inserted.
+
+Elapsed: 00:00:00.001
+
+
+SQL> INSERT INTO Employees (EmployeeID, Name, Department, Salary) VALUES (3, 'Charlie Red', 'Sales', 70000.00)
+
+
+
+1 row inserted.
+
+Elapsed: 00:00:00.002
+
+
+SQL> INSERT INTO Employees (EmployeeID, Name, Department, Salary) VALUES (4, 'David Blue', 'HR', 50000.00)
+
+
+
+1 row inserted.
+
+Elapsed: 00:00:00.001
+
+
+SQL> INSERT INTO Accounts (AccountNumber, AccountHolder, Balance) VALUES ('ACC001', 'Alice User', 1000.00)
+
+
+
+1 row inserted.
+
+Elapsed: 00:00:00.012
+
+
+SQL> INSERT INTO Accounts (AccountNumber, AccountHolder, Balance) VALUES ('ACC002', 'Bob User', 500.00)
+
+
+
+1 row inserted.
+
+Elapsed: 00:00:00.001
+
+
+SQL> INSERT INTO Accounts (AccountNumber, AccountHolder, Balance) VALUES ('ACC003', 'Charlie User', 2500.00)
+
+
+
+1 row inserted.
+
+Elapsed: 00:00:00.002
+
+
+SQL> COMMIT
+
+
+
+Commit complete.
+
+Elapsed: 00:00:00.002
+
+
+SQL> SELECT * FROM Employees
+
+EMPLOYEEID NAME          DEPARTMENT  SALARY 
+---------- ------------- ----------- ------ 
+1          Alice Green   Sales       60000  
+2          Bob Black     Marketing   55000  
+3          Charlie Red   Sales       70000  
+4          David Blue    HR          50000  
+
+Elapsed: 00:00:00.007
+4 rows selected. 
+
+
+
+SQL> SELECT * FROM Accounts
+
+ACCOUNTNUMBER ACCOUNTHOLDER  BALANCE 
+------------- -------------- ------- 
+ACC001        Alice User     1000    
+ACC002        Bob User       500     
+ACC003        Charlie User   2500    
+
+Elapsed: 00:00:00.008
+3 rows selected. 
+
+
+
+SQL> CREATE OR REPLACE PROCEDURE ProcessMonthlyInterest IS
+         v_interest_rate CONSTANT NUMBER := 0.01;
+     BEGIN
+         DBMS_OUTPUT.PUT_LINE('--- Processing Monthly Interest for Savings Accounts ---');...
+Show more...
+
+
+
+Procedure PROCESSMONTHLYINTEREST compiled
+
+Elapsed: 00:00:00.020
+
+
+SQL> CREATE OR REPLACE PROCEDURE UpdateEmployeeBonus (
+         p_department_name IN VARCHAR2,
+         p_bonus_percentage IN NUMBER
+     ) IS...
+Show more...
+
+
+
+Procedure UPDATEEMPLOYEEBONUS compiled
+
+Elapsed: 00:00:00.046
+
+
+SQL> CREATE OR REPLACE PROCEDURE TransferFunds (
+         p_source_account_number IN VARCHAR2,
+         p_destination_account_number IN VARCHAR2,
+         p_amount IN NUMBER...
+Show more...
+
+
+
+Procedure TRANSFERFUNDS compiled
+
+Elapsed: 00:00:00.029
