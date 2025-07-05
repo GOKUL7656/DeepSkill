@@ -1,0 +1,9 @@
+--Output--
+
+--- Starting Library Management Application ---
+Spring Application Context loaded successfully.
+BookService bean retrieved from Spring context.
+BookService: Attempting to add book - 'The Lord of the Rings'
+BookRepository: Saving book 'The Lord of the Rings' to the database.
+BookService: Book 'The Lord of the Rings' added successfully.
+--- Application Finished ---
