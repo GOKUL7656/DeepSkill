@@ -1,0 +1,48 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 20px;
+}
+
+.app-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #0056b3;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.score-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background-color: #e9f7fe;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.score-card h2 {
+  color: #007bff;
+  margin-top: 0;
+  border-bottom: 1px solid #a8d5ee;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.score-card p {
+  margin: 5px 0;
+  line-height: 1.5;
+}
+
+.score-card strong {
+  color: #555;
+}
