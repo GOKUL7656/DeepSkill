@@ -1,0 +1,6 @@
+*.orig
+*_BASE_*.xml
+*_LOCAL_*.xml
+*_REMOTE_*.xml
+*_BACKUP_*.xml
+*.swp
